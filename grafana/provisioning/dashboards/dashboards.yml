@@ -1,0 +1,10 @@
+apiVersion: 1
+
+providers:
+  - name: "sales"
+    folder: "Sales"
+    type: file
+    disableDeletion: true
+    editable: false
+    options:
+      path: /etc/grafana/dashboards
