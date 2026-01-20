@@ -5,11 +5,10 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    container_name: sales-api
     ports:
       - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_PROFILES_ACTIVE=dev
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
       interval: 5s
@@ -18,7 +17,6 @@ services:
 
   prometheus:
     image: prom/prometheus:v2.50.0
-    container_name: prometheus
     volumes:
       - ../prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     command:
@@ -31,7 +29,6 @@ services:
 
   grafana:
     image: grafana/grafana:10.4.0
-    container_name: grafana
     ports:
       - "3000:3000"
     environment:

@@ -1,13 +1,10 @@
 {
   "name": "springboot-webflux-grafana",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "features": {},
-  "runArgs": [
-    "-v",
-    "/var/run/docker.sock:/var/run/docker.sock"
-  ],
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "sales-api",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [8080, 9090, 3000],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -17,7 +14,5 @@
       ]
     }
   },
-  "forwardPorts": [8080, 9090, 3000],
-  "postCreateCommand": "chmod +x mvnw",
-  "remoteUser": "root"
+  "postCreateCommand": "chmod +x mvnw"
 }
