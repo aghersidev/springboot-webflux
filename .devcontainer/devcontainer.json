@@ -2,7 +2,6 @@
   "name": "springboot-webflux-grafana",
   "dockerComposeFile": "docker-compose.yml",
   "service": "sales-api",
-  "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
   "forwardPorts": [8080, 9090, 3000],
   "customizations": {
